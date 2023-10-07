@@ -141,7 +141,10 @@ require('lazy').setup({
       end,
     },
   },
-
+vim.keymap.set('n', "<leader>rh", function() require("gitsigns").reset_hunk() end,  {desc = "[R]eset [H]unk"}),
+    vim.keymap.set('n', '<leader>ph', function() require("gitsigns").preview_hunk() end, {desc = "[p]review [h]unk"}),
+    vim.keymap.set('n', '<leader>gb', function() package.loaded.gitsigns.blame_line() end, "[g]it [b]lame current line")
+vim.keymap.set('n', '<leader>gs', function() require("gitsigns").stage_hunk() end, {desc = "[g]it [s]tage hunk"})
   {
     -- Theme inspired by Atom
     'navarasu/onedark.nvim',
@@ -268,9 +271,22 @@ vim.o.termguicolors = true
 -- Keymaps for better default experience
 -- See `:help vim.keymap.set()`
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
-vim.keymap.set('n', '<leader>e', ':Ex', {desc = "[e]xplore files"})
-vim.keymap.set('n', '<C-h>', '<C-w>h', {desc = ""})
+vim.keymap.set('n', '<leader>e', ':Ex <CR>', {desc = "[e]xplore files"})
+vim.keymap.set('n', ';', 'enter command mode', {nowait = true})
+vim.keymap.set('n', '<leader>v', ":vsplit <CR>", {desc = "vertical split", nowait = true})
+vim.keymap.set('n', '<C-h>', '<C-w>h', {desc = "Move to left window"})
+vim.keymap.set('n', '<C-j>', '<C-w>j', {desc = "Move to lower window"})
+vim.keymap.set('n', '<C-k>', '<C-w>k', {desc = "Move to upper window"})
+vim.keymap.set('n', '<C-l>', '<C-w>l', {desc = "Move to right window"})
+vim.keymap.set('n', '<C-s>', '<cmd> w <CR>', {desc = "Save file"})
+vim.keymap.set('n', '<leader>rn', '<cmd> set rnu! <CR>', {desc = "Toggle relative line numbers"})
 
+vim.keymap.set('v', '<', '<gv', {desc = "Indent line"})
+vim.keymap.set('v', '>', '>gv', {desc = "Indent line"})
+
+vim.keymap.set('n', '<leader>/', function()
+  require("Comment.api").togle.linewise.current() end, {desc = "Toggle Comments for current line"})
+vim.keymap.set('v', '<leader>/', "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", {desc = "Toggle comments for selection"})
 
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
