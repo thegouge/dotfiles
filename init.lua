@@ -1,41 +1,3 @@
---[[
-
-=====================================================================
-==================== READ THIS BEFORE CONTINUING ====================
-=====================================================================
-
-Kickstart.nvim is *not* a distribution.
-
-Kickstart.nvim is a template for your own configuration.
-  The goal is that you can read every line of code, top-to-bottom, understand
-  what your configuration is doing, and modify it to suit your needs.
-
-  Once you've done that, you should start exploring, configuring and tinkering to
-  explore Neovim!
-
-  If you don't know anything about Lua, I recommend taking some time to read through
-  a guide. One possible example:
-  - https://learnxinyminutes.com/docs/lua/
-
-
-  And then you can explore or search through `:help lua-guide`
-  - https://neovim.io/doc/user/lua-guide.html
-
-
-Kickstart Guide:
-
-I have left several `:help X` comments throughout the init.lua
-You should run that command and read that help section for more information.
-
-In addition, I have some `NOTE:` items throughout the file.
-These are for you, the reader to help understand what is happening. Feel free to delete
-them once you know what you're doing, but they should serve as a guide for when you
-are first encountering a few different constructs in your nvim config.
-
-I hope you enjoy your Neovim journey,
-- TJ
-
-P.S. You can delete this when you're done too. It's your config now :)
 --]]
 -- Set <space> as the leader key
 -- See `:help mapleader`
@@ -138,14 +100,15 @@ require('lazy').setup({
           vim.schedule(function() gs.prev_hunk() end)
           return '<Ignore>'
         end, {expr=true, buffer = bufnr, desc = "Jump to previous hunk"})
+        
+    vim.keymap.set('n', "<leader>rh", function() require("gitsigns").reset_hunk() end,  {desc = "[R]eset [H]unk"})
+    vim.keymap.set('n', '<leader>ph', function() require("gitsigns").preview_hunk() end, {desc = "[p]review [h]unk"})
+    vim.keymap.set('n', '<leader>gb', function() package.loaded.gitsigns.blame_line() end, {desc = "[g]it [b]lame current line"})
+    vim.keymap.set('n', '<leader>gs', function() require("gitsigns").stage_hunk() end, {desc = "[g]it [s]tage hunk"})
+  
       end,
     },
-  },
-vim.keymap.set('n', "<leader>rh", function() require("gitsigns").reset_hunk() end,  {desc = "[R]eset [H]unk"}),
-    vim.keymap.set('n', '<leader>ph', function() require("gitsigns").preview_hunk() end, {desc = "[p]review [h]unk"}),
-    vim.keymap.set('n', '<leader>gb', function() package.loaded.gitsigns.blame_line() end, "[g]it [b]lame current line")
-vim.keymap.set('n', '<leader>gs', function() require("gitsigns").stage_hunk() end, {desc = "[g]it [s]tage hunk"})
-  {
+  },{
     -- Theme inspired by Atom
     'navarasu/onedark.nvim',
     priority = 1000,
