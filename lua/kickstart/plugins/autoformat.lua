@@ -64,8 +64,7 @@ return {
               async = false,
               filter = function(c)
                 return c.id == client.id
-              end,
-            }
+              end, }
           end,
         })
       end,
