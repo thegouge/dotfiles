@@ -5,6 +5,9 @@ local plugins = {
   {
     "arp242/gopher.vim",
   },
+  {
+    'voldikss/vim-floaterm',
+  },
 }
 
 return plugins

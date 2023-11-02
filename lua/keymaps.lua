@@ -111,6 +111,14 @@ local remaps = {
       end,
       "[G]it [S]tage hunk"
     },
+
+    -- Floaterm
+    ["<A-i>"] = { ":FloatermToggle<CR>",
+      "Toggle Floating Terminal"
+    }
+  },
+  t = {
+    ["<Esc>"] = { "<C-\\><C-n>", "Exit Terminal Mode" }
   },
   v = {
     ["<leader>/"] = {
