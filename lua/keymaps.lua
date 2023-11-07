@@ -27,7 +27,7 @@ local remaps = {
     ["<leader>n"] = { "<cmd> set rnu! <CR>", "Toggle relative number" },
 
     -- MY custom keybinds
-    ["<leader>s"] = { ":split", "[S]plit Window" },
+    -- ["<leader>s"] = { ":split", "[S]plit Window" },
     ["<leader>v"] = { ":vsplit<CR>", "Split Window [V]ertically" },
 
     -- traditional save
@@ -118,7 +118,7 @@ local remaps = {
     }
   },
   t = {
-    ["<Esc>"] = { "<C-\\><C-n>", "Exit Terminal Mode" }
+    ["<Esc>"] = { "<C-\\><C-n> :FloatermToggle<CR>", "Exit Terminal Mode" }
   },
   v = {
     ["<leader>/"] = {
