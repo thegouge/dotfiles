@@ -1,10 +1,10 @@
 local remaps = {
   n = {
     -- Diagnostic keymaps
-    ['[d'] = { vim.diagnostic.goto_prev, 'Go to previous diagnostic message' },
-    [']d'] = { vim.diagnostic.goto_next, 'Go to next diagnostic message' },
-    ['<leader>fd'] = { vim.diagnostic.open_float, 'Open floating diagnostic message' },
-    ['<leader>q'] = { vim.diagnostic.setloclist, 'Open diagnostics list' },
+    ['[d'] = { vim.diagnostic.goto_prev, 'Go to previous [D]iagnostic message' },
+    [']d'] = { vim.diagnostic.goto_next, 'Go to next [D]iagnostic message' },
+    ['<leader>e'] = { vim.diagnostic.open_float, 'Show diagnostic [E]rror messages' },
+    ['<leader>q'] = { vim.diagnostic.setloclist, 'Open diagnostic [Q]uickfix list' },
 
     -- LSP configuration
     ['<leader>rn'] = { vim.lsp.buf.rename, '[R]e[n]ame' },
@@ -12,120 +12,127 @@ local remaps = {
 
     -- Telescope bindings
     -- See `:help telescope.builtin`
-    ['<leader>?'] = { require('telescope.builtin').oldfiles, "[?] Find recently opened files" },
-    ['<leader><space>'] = { require('telescope.builtin').buffers, "[ ] Find existing Buffers" },
-    ['<leader>ff'] = { function()
-      require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown { winblend = 10, previewer = false })
-    end, "[F]uzzy [F]ind in current buffer" },
-    ['<leader>gf'] = { require('telescope.builtin').git_files, "Search [G]it [F]iles" },
-    ['<leader>sf'] = { require('telescope.builtin').find_files, "[S]earch [F]iles" },
-    ['<leader>sh'] = { require('telescope.builtin').help_tags, "[S]earch [H]elp" },
-    ['<leader>sw'] = { require('telescope.builtin').grep_string, "[S]earch current [W]ord" },
-    ['<leader>sg'] = { require('telescope.builtin').live_grep, "[S]earch by [G]rep" },
-    ['<leader>sd'] = { require('telescope.builtin').diagnostics, "[S]earch [D]iagnostics" },
-    ['<leader>sr'] = { require('telescope.builtin').resume, "[S]earch [R]esume" },
-    ["<leader>n"] = { "<cmd> set rnu! <CR>", "Toggle relative number" },
+    ['<leader>?'] = { require('telescope.builtin').oldfiles, '[?] Find recently opened files' },
+    ['<leader><space>'] = { require('telescope.builtin').buffers, '[ ] Find existing Buffers' },
+    ['<leader>ff'] = {
+      function()
+        require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown { winblend = 10, previewer = false })
+      end,
+      '[F]uzzy [F]ind in current buffer',
+    },
+    ['<leader>gf'] = { require('telescope.builtin').git_files, 'Search [G]it [F]iles' },
+    ['<leader>sf'] = { require('telescope.builtin').find_files, '[S]earch [F]iles' },
+    ['<leader>sh'] = { require('telescope.builtin').help_tags, '[S]earch [H]elp' },
+    ['<leader>sw'] = { require('telescope.builtin').grep_string, '[S]earch current [W]ord' },
+    ['<leader>sg'] = { require('telescope.builtin').live_grep, '[S]earch by [G]rep' },
+    ['<leader>sd'] = { require('telescope.builtin').diagnostics, '[S]earch [D]iagnostics' },
+    ['<leader>sr'] = { require('telescope.builtin').resume, '[S]earch [R]esume' },
+    ['<leader>n'] = { '<cmd> set rnu! <CR>', 'Toggle relative number' },
 
     -- MY custom keybinds
     -- ["<leader>s"] = { ":split", "[S]plit Window" },
-    ["<leader>v"] = { ":vsplit<CR>", "Split Window [V]ertically" },
+    ['<leader>v'] = { ':vsplit<CR>', 'Split Window [V]ertically' },
 
     -- traditional save
-    ["<C-s>"] = { "<cmd> w <CR>", "[S]ave current file" },
+    -- ['<C-s>'] = { '<cmd> w <CR>', '[S]ave current file' },
 
-    -- navigate between windows
-    ["<C-h>"] = { "<C-w>h", "Window left" },
-    ["<C-j>"] = { "<C-w>j", "Window down" },
-    ["<C-k>"] = { "<C-w>k", "Window up" },
-    ["<C-l>"] = { "<C-w>l", "Window right" },
+    -- Keybinds to make split navigation easier.
+    --  Use CTRL+<hjkl> to switch between windows
+    --
+    --  See `:help wincmd` for a list of all window commands
+    ['<C-h>'] = { '<C-w><C-h>', 'Move focus to the left window' },
+    ['<C-j>'] = { '<C-w><C-j>', 'Move focus to the lower window' },
+    ['<C-k>'] = { '<C-w><C-k>', 'Move focus to the upper window' },
+    ['<C-l>'] = { '<C-w><C-l>', 'Move focus to the right window' },
 
     -- formatting from lsp
-    ["<leader>fm"] = {
+    ['<leader>fm'] = {
       function()
         vim.lsp.buf.format { async = true }
       end,
-      "LSP [f]or[m]atting",
+      'LSP [f]or[m]atting',
     },
 
     -- Opening/closing the file tree explorer
-    ["<leader>e"] = { ":Neotree<CR>", "Open File Tree" },
-    ["<C-n>"] = { ":Neotree toggle<CR>", "Toggle File Tree" },
+    -- ['<C-n>'] = { ':Neotree toggle<CR>', 'Toggle File Tree' },
 
-    ["<leader>/"] = {
+    ['<leader>/'] = {
       function()
-        require("Comment.api").toggle.linewise.current()
+        require('Comment.api').toggle.linewise.current()
       end,
-      "[/] Toggle comment on current line",
+      '[/] Toggle comment on current line',
     },
 
     -- Gitsigns
-    ["]c"] = {
+    [']c'] = {
       function()
         if vim.wo.diff then
-          return "]c"
+          return ']c'
         end
         vim.schedule(function()
-          require("gitsigns").next_hunk()
+          require('gitsigns').next_hunk()
         end)
-        return "<Ignore>"
+        return '<Ignore>'
       end,
-      "Jump to next hunk", { expr = true }
+      'Jump to next hunk',
+      { expr = true },
     },
-    ["[c"] = { function()
-      if vim.wo.diff then
-        return "[c"
-      end
-      vim.schedule(function()
-        require("gitsigns").prev_hunk()
-      end)
-      return "<Ignore>"
-    end,
-      "Jump to prev hunk", { expr = true } },
-    ["<leader>rh"] = {
+    ['[c'] = {
       function()
-        require("gitsigns").reset_hunk()
+        if vim.wo.diff then
+          return '[c'
+        end
+        vim.schedule(function()
+          require('gitsigns').prev_hunk()
+        end)
+        return '<Ignore>'
       end,
-      "[R]eset [H]unk",
+      'Jump to prev hunk',
+      { expr = true },
     },
-    ["<leader>ph"] = {
+    ['<leader>rh'] = {
       function()
-        require("gitsigns").preview_hunk()
+        require('gitsigns').reset_hunk()
       end,
-      "[P]review [H]unk",
+      '[R]eset [H]unk',
     },
-    ["<leader>gb"] = {
+    ['<leader>ph'] = {
+      function()
+        require('gitsigns').preview_hunk()
+      end,
+      '[P]review [H]unk',
+    },
+    ['<leader>gb'] = {
       function()
         package.loaded.gitsigns.blame_line()
       end,
-      "[G]it [B]lame line",
+      '[G]it [B]lame line',
     },
-    ["<leader>td"] = {
+    ['<leader>td'] = {
       function()
-        require("gitsigns").toggle_deleted()
+        require('gitsigns').toggle_deleted()
       end,
-      "[T]oggle [D]eleted",
+      '[T]oggle [D]eleted',
     },
-    ["<leader>gs"] = {
+    ['<leader>gs'] = {
       function()
-        require("gitsigns").stage_hunk()
+        require('gitsigns').stage_hunk()
       end,
-      "[G]it [S]tage hunk"
+      '[G]it [S]tage hunk',
     },
 
     -- Floaterm
-    ["<A-i>"] = { ":FloatermToggle<CR>",
-      "Toggle Floating Terminal"
-    }
+    ['<A-i>'] = { ':FloatermToggle<CR>', 'Toggle Floating Terminal' },
   },
   t = {
-    ["<Esc>"] = { "<C-\\><C-n> :FloatermToggle<CR>", "Exit Terminal Mode" }
+    ['<Esc>'] = { '<C-\\><C-n> :FloatermToggle<CR>', 'Exit Terminal Mode' },
   },
   v = {
-    ["<leader>/"] = {
+    ['<leader>/'] = {
       "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
-      "Toggle comment on selection",
+      'Toggle comment on selection',
     },
-  }
+  },
 }
 
 -- document existing key chains
@@ -148,7 +155,7 @@ for mode, mappings in pairs(remaps) do
       options = {}
     end
 
-    if args[2] ~= "" then
+    if args[2] ~= '' then
       options.desc = args[2]
     end
 
