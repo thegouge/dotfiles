@@ -54,7 +54,7 @@ local remaps = {
     },
 
     -- Opening/closing the file tree explorer
-    ['<C-n>'] = { ':Neotree toggle<CR>', 'Toggle File Tree' },
+    -- ['<C-n>'] = { ':Neotree toggle<CR>', 'Toggle File Tree' },
 
     ['<leader>/'] = {
       function()
