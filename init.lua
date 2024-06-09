@@ -32,6 +32,11 @@ vim.opt.clipboard = 'unnamedplus'
 -- Enable break indent
 vim.opt.breakindent = true
 
+-- other indenting rules
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+
 -- Save undo history
 vim.opt.undofile = true
 
@@ -745,7 +750,7 @@ require('lazy').setup({
         -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
         --  If you are experiencing weird indenting issues, add the language to
         --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-        additional_vim_regex_highlighting = { 'ruby', 'typescript' },
+        additional_vim_regex_highlighting = { 'ruby' },
       },
       indent = { enable = true, disable = { 'ruby' } },
     },
