@@ -19,7 +19,6 @@ vim.opt.mouse = 'a'
 vim.opt.showmode = false
 
 -- Sync clipboard between OS and Neovim.
---  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.opt.clipboard = 'unnamedplus'
 
@@ -27,10 +26,10 @@ vim.opt.clipboard = 'unnamedplus'
 vim.opt.breakindent = true
 
 -- indenting definitions
-vim.cmd 'set expandtab'
-vim.cmd 'set tabstop=2'
-vim.cmd 'set softtabstop=2'
-vim.cmd 'set shiftwidth=2'
+vim.opt.tabstop = 2
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
 
 -- Save undo history
 vim.opt.undofile = true

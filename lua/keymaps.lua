@@ -29,29 +29,21 @@ local remaps = {
     ['<leader>sr'] = { require('telescope.builtin').resume, '[S]earch [R]esume' },
     ['<leader>n'] = { '<cmd> set rnu! <CR>', 'Toggle relative number' },
 
-    -- MY custom keybinds
     -- ["<leader>s"] = { ":split", "[S]plit Window" },
     ['<leader>v'] = { ':vsplit<CR>', 'Split Window [V]ertically' },
 
     -- traditional save
-    -- ['<C-s>'] = { '<cmd> w <CR>', '[S]ave current file' },
+    ['<C-s>'] = { '<cmd> w <CR>', '[S]ave current file' },
 
-    -- Keybinds to make split navigation easier.
     --  Use CTRL+<hjkl> to switch between windows
-    --
-    --  See `:help wincmd` for a list of all window commands
     ['<C-h>'] = { '<C-w><C-h>', 'Move focus to the left window' },
     ['<C-j>'] = { '<C-w><C-j>', 'Move focus to the lower window' },
     ['<C-k>'] = { '<C-w><C-k>', 'Move focus to the upper window' },
     ['<C-l>'] = { '<C-w><C-l>', 'Move focus to the right window' },
 
-    -- formatting from lsp
-    ['<leader>fm'] = {
-      function()
-        vim.lsp.buf.format { async = true }
-      end,
-      'LSP [f]or[m]atting',
-    },
+    -- kebinds to resize window splits
+    ['<M-,>'] = { '<c-w>5<', 'Make the current split bigger' },
+    ['<M-.>'] = { '<c-w>5>', 'Make the current split smaller' },
 
     -- Opening/closing the file tree explorer
     -- ['<C-n>'] = { ':Neotree toggle<CR>', 'Toggle File Tree' },
@@ -121,14 +113,11 @@ local remaps = {
       '[G]it [S]tage hunk',
     },
 
-    -- Floaterm
-    ['<A-i>'] = { ':FloatermToggle<CR>', 'Toggle Floating Terminal' },
-
     -- Set highlight on search, but clear on pressing <Esc> in normal mode
     ['<Esc>'] = { '<cmd>nohlsearch<CR>', 'clear Search' },
   },
   t = {
-    ['<Esc>'] = { '<C-\\><C-n> :FloatermToggle<CR>', 'Exit Terminal Mode' },
+    ['<Esc><Esc>'] = { '<C-\\><C-n>', 'Escape the terminal' },
   },
   v = {
     ['<leader>/'] = {
@@ -148,14 +137,6 @@ require('which-key').register {
   ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
   ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
 }
-
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
--- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
--- is not what someone will guess without a bit more experience.
---
--- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
--- or just use <C-\><C-n> to exit terminal mode
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
