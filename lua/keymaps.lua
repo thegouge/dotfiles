@@ -15,10 +15,10 @@ local remaps = {
     ['<C-s>'] = { '<cmd> w <CR>', '[S]ave current file' },
 
     --  Use CTRL+<hjkl> to switch between windows
-    ['<C-h>'] = { ':wincmd h<CR>', 'Move focus to the left window', { silent = true } },
-    ['<C-j>'] = { ':wincmd j<CR>', 'Move focus to the lower window', { silent = true } },
-    ['<C-k>'] = { ':wincmd k<CR>', 'Move focus to the upper window', { silent = true } },
-    ['<C-l>'] = { ':wincmd l<CR>', 'Move focus to the right window', { silent = true } },
+    ['<C-h>'] = { '<C-w><C-h>', 'Move focus to the left window' },
+    ['<C-j>'] = { '<C-w><C-j>', 'Move focus to the lower window' },
+    ['<C-k>'] = { '<C-w><C-k>', 'Move focus to the upper window' },
+    ['<C-l>'] = { '<C-w><C-l>', 'Move focus to the right window' },
 
     -- kebinds to resize window splits
     ['<M-,>'] = { '<c-w>5<', 'Make the current split bigger' },
