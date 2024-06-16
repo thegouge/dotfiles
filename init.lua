@@ -47,6 +47,9 @@ require('lazy').setup({ import = 'plugins' }, {
       lazy = '💤 ',
     },
   },
+  change_detection = {
+    notify = false,
+  },
 })
 
 require 'keymaps'
