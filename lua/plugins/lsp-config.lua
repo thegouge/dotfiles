@@ -135,6 +135,13 @@ return { -- LSP Configuration & Plugins
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
           end, '[T]oggle Inlay [H]ints')
         end
+
+        vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, {
+          -- Use a sharp border with `FloatBorder` highlights
+          border = 'single',
+          -- add the title in hover float window
+          title = 'info',
+        })
       end,
     })
 
@@ -156,12 +163,16 @@ return { -- LSP Configuration & Plugins
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
     local servers = {
       -- See `:help lspconfig-all` for a list of all the pre-configured LSPs
-      gopls = {},
-      tsserver = {},
+      gopls = {
+        capabilities = capabilities,
+      },
+      tsserver = {
+        capabilities = capabilities,
+      },
       lua_ls = {
         -- cmd = {...},
         -- filetypes = { ...},
-        -- capabilities = {},
+        capabilities = capabilities,
         settings = {
           Lua = {
             completion = {
@@ -195,6 +206,10 @@ return { -- LSP Configuration & Plugins
           require('lspconfig')[server_name].setup(server)
         end,
       },
+    }
+
+    require('lspconfig.ui.windows').default_options = {
+      border = 'single',
     }
   end,
 }
