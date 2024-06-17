@@ -1,8 +1,8 @@
 local remaps = {
   n = {
     -- Diagnostic keymaps
-    ['[d'] = { vim.diagnostic.goto_prev, 'Go to previous [D]iagnostic message' },
-    [']d'] = { vim.diagnostic.goto_next, 'Go to next [D]iagnostic message' },
+    ['[d'] = { vim.diagnostic.get_prev, 'Go to previous [D]iagnostic message' },
+    [']d'] = { vim.diagnostic.get_next, 'Go to next [D]iagnostic message' },
     ['<leader>e'] = { vim.diagnostic.open_float, 'Show diagnostic [E]rror messages' },
     ['<leader>q'] = { vim.diagnostic.setloclist, 'Open diagnostic [Q]uickfix list' },
 
@@ -15,10 +15,10 @@ local remaps = {
     ['<C-s>'] = { '<cmd> w <CR>', '[S]ave current file' },
 
     --  Use CTRL+<hjkl> to switch between windows
-    ['<C-h>'] = { '<C-w><C-h>', 'Move focus to the left window' },
-    ['<C-j>'] = { '<C-w><C-j>', 'Move focus to the lower window' },
-    ['<C-k>'] = { '<C-w><C-k>', 'Move focus to the upper window' },
-    ['<C-l>'] = { '<C-w><C-l>', 'Move focus to the right window' },
+    ['<C-h>'] = { ':wincmd h<CR>', 'Move focus to the left window', { silent = true } },
+    ['<C-j>'] = { ':wincmd j<CR>', 'Move focus to the lower window', { silent = true } },
+    ['<C-k>'] = { ':wincmd k<CR>', 'Move focus to the upper window', { silent = true } },
+    ['<C-l>'] = { ':wincmd l<CR>', 'Move focus to the right window', { silent = true } },
 
     -- kebinds to resize window splits
     ['<M-,>'] = { '<c-w>5<', 'Make the current split bigger' },
