@@ -1,0 +1,12 @@
+# Home Server IP
+BEEFY_IP=192.168.0.154
+
+# setting default editor
+export EDITOR="nvim"
+
+# Adding stuff to the path
+export PATH="$PATH:/home/thegouge/go/bin"
+export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:/home/thegouge/.meteor"
+export PATH="$PATH:/home/thegouge/worldbanc/private/bin"
+export PATH="$PATH:$HOME/.tmuxifier/bin"
