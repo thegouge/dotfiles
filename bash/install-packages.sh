@@ -1,6 +1,6 @@
 #!/bin/bash
 
-packages = ["neovim", "tmux", "discord", "Godot", "gnome-terminal", "steam", "syncthing", "obs-studio", "zoom", "timeshift"]
+packages = ["neovim", "tmux", "discord", "Godot", "gnome-terminal", "steam", "syncthing", "obs-studio", "zoom", "timeshift", "fzf", ""]
 
 if [ -f /etc/apt ]; then
     # we're in debian land!
