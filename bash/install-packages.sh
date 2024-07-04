@@ -1,6 +1,6 @@
 #!/bin/bash
 
-packages = ["neovim", "tmux", "discord", "Godot", "gnome-terminal", "steam", "syncthing", "obs-studio", "zoom", "timeshift", "fzf", ""]
+packages=("neovim" "tmux" "discord" "Godot" "gnome-terminal" "steam" "syncthing" "obs-studio" "zoom" "timeshift" "fzf" "stow")
 
 if [ -f /etc/apt ]; then
     # we're in debian land!
@@ -12,7 +12,7 @@ if [ -f /etc/apt ]; then
     apt-get update
 
     # install everything
-    apt-get install $packages nala ffmpeg -y
+    apt-get install "${packages[@]}" nala ffmpeg -y
 
     # set up docker
     apt-get install ca-certificates curl
@@ -23,9 +23,9 @@ if [ -f /etc/apt ]; then
     apt-get update
     apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-else 
+else
 
-    yay -S $packages docker -y
+    yay -S "${packages[@]}" docker go -y
 
 fi
 
