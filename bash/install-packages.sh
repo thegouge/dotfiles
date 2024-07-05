@@ -25,7 +25,7 @@ if [ -f /etc/apt ]; then
 
 else
 
-    yay -S "${packages[@]}" docker go -y
+    yay -S "${packages[@]}" docker go nerd-fonts-git -y
 
 fi
 
@@ -36,3 +36,22 @@ nvm install node
 # Install vencord
 sh -c "$(curl -sS https://raw.githubusercontent.com/Vendicated/VencordInstaller/main/install.sh)"
 
+# Append to our .bashrc
+echo "# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color|*-256color) color_prompt=yes;;
+esac
+
+# Alias Definitions
+# this line shoves all the aliases into a .bash_aliases file
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# Environment Variables
+#this line defines all the environment variables in a seperate file
+if [ -f ~/.bash_vars ]; then
+    . ~/.bash_vars
+fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash" >> ~/.bashrc
