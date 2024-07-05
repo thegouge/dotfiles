@@ -1,9 +1,29 @@
 #!/bin/bash
 
-packages=("neovim" "tmux" "discord" "Godot" "gnome-terminal" "steam" "syncthing" "obs-studio" "zoom" "timeshift" "fzf" "stow")
+# Double check that we're running as sudo
+if [ "$EUID" -ne 0 ];then
+    echo "Please run this script as root"
+    exit 1
+fi
 
-if [ -f /etc/apt ]; then
-    # we're in debian land!
+# List of base packages to install, feel free to comment out what you don't want
+packages=(
+    "neovim" 
+    "tmux" 
+    "discord" 
+    "Godot" 
+    "gnome-terminal" 
+    "steam" 
+    "syncthing" 
+    "obs-studio" 
+    "zoom" 
+    "timeshift" 
+    "fzf" 
+    "stow",
+    "xclip")
+
+if [ -f /etc/apt/sources.list ]; then
+    echo "we're in debian land!"
 
     # Adding all the repositories we need
     add-apt-repository ppa:neovim-ppa/stable -y
@@ -23,10 +43,13 @@ if [ -f /etc/apt ]; then
     apt-get update
     apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-else
+elif [ -f /etc/pacman.conf ]; then
+    echo "we're in Arch land!"
 
     yay -S "${packages[@]}" docker go nerd-fonts-git -y
 
+else
+    echo "Unsupported distro!"
 fi
 
 # Set up Node Version Manager
