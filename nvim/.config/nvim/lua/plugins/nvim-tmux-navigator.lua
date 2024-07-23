@@ -5,13 +5,11 @@ return {
     'TmuxNavigateDown',
     'TmuxNavigateUp',
     'TmuxNavigateRight',
-    'TmuxNavigatePrevious',
   },
   keys = {
-    { '<M-h>', ':TmuxNavigateLeft<cr>' },
-    { '<M-j>', ':TmuxNavigateDown<cr>' },
-    { '<M-k>', ':TmuxNavigateUp<cr>' },
-    { '<M-l>', ':TmuxNavigateRight<cr>' },
-    { '<M-\\>', ':TmuxNavigatePrevious<cr>' },
+    { '<c-h>', ':TmuxNavigateLeft<cr>' },
+    { '<c-j>', ':TmuxNavigateDown<cr>' },
+    { '<c-k>', ':TmuxNavigateUp<cr>' },
+    { '<c-l>', ':TmuxNavigateRight<cr>' },
   },
 }
