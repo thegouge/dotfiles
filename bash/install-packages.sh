@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# Double check that we're running as sudo
-if [ "$EUID" -ne 0 ];then
-    echo "Please run this script as root"
-    exit 1
-fi
 
 # List of base packages to install, feel free to comment out what you don't want
 packages=(
@@ -24,6 +19,12 @@ packages=(
 
 if [ -f /etc/apt/sources.list ]; then
     echo "we're in debian land!"
+
+# Double check that we're running as sudo
+if [ "$EUID" -ne 0 ];then
+    echo "Please run this script as root"
+    exit 1
+fi
 
     # Adding all the repositories we need
     add-apt-repository ppa:neovim-ppa/stable -y
@@ -53,11 +54,11 @@ else
 fi
 
 # Set up Node Version Manager
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-nvm install node
+# curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+# nvm install node
 
 # Install vencord
-sh -c "$(curl -sS https://raw.githubusercontent.com/Vendicated/VencordInstaller/main/install.sh)"
+# sh -c "$(curl -sS https://raw.githubusercontent.com/Vendicated/VencordInstaller/main/install.sh)"
 
 # Append to our .bashrc
 echo "# set a fancy prompt (non-color, unless we know we "want" color)
