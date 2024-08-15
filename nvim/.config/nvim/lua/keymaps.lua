@@ -38,6 +38,11 @@ local remaps = {
   },
 }
 
+vim.keymap.set('n', 'd', '"_d')
+vim.keymap.set('n', 'D', '"_D')
+vim.keymap.set('v', 'd', '"_d')
+vim.keymap.set('v', 'D', '"_D')
+
 -- programmatically setting all of the above keymaps
 for mode, mappings in pairs(remaps) do
   for command, args in pairs(mappings) do
