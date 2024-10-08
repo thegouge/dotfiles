@@ -17,9 +17,6 @@ packages=(
     "stow",
     "xclip")
 
-if [ -f /etc/apt/sources.list ]; then
-    echo "we're in debian land!"
-
 # Double check that we're running as sudo
 if [ "$EUID" -ne 0 ];then
     echo "Please run this script as root"
