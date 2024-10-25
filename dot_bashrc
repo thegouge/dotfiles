@@ -1,0 +1,48 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+PS1='[\u@\h \W]\$ '
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# set a fancy prompt (non-color, unless we know we want color)
+case xterm-256color in
+    xterm-color|*-256color) color_prompt=yes;;
+esac
+
+# Alias Definitions
+# this line shoves all the aliases into a .bash_aliases file
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# Environment Variables
+#this line defines all the environment variables in a seperate file
+if [ -f ~/.bash_vars ]; then
+    . ~/.bash_vars
+fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# function yy() {
+# 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+# 	yazi "$@" --cwd-file="$tmp"
+# 	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+# 		builtin cd -- "$cwd"
+# 	fi
+# 	rm -f -- "$tmp"
+# }
+
+
+eval "$(thefuck --alias)"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH
