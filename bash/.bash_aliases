@@ -1,3 +1,6 @@
 alias sudo="sudo "
 alias godot="/usr/bin/godot"
 alias okularkirigami="kate"
+alias vim="nvim"
+alias vvim="nvim ."
+alias gdvim="gdvim.sh"
