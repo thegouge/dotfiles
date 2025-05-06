@@ -152,6 +152,8 @@ return { -- LSP Configuration & Plugins
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
+    require('lspconfig').gdscript.setup(capabilities)
+
     -- Enable the following language servers
     --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
     --
@@ -166,7 +168,7 @@ return { -- LSP Configuration & Plugins
       gopls = {
         capabilities = capabilities,
       },
-      tsserver = {
+      ts_ls = {
         capabilities = capabilities,
         handlers = {
           ['textDocument/publishDiagnostics'] = function(_, result, ctx, config)
@@ -174,7 +176,7 @@ return { -- LSP Configuration & Plugins
               return
             end
 
-            -- ignore some tsserver diagnostics
+            -- ignore some ts_ls diagnostics
             local idx = 1
             while idx <= #result.diagnostics do
               local entry = result.diagnostics[idx]
@@ -207,6 +209,10 @@ return { -- LSP Configuration & Plugins
           },
         },
       },
+      gdtoolkit = {
+        name = 'godot',
+        cmd = vim.lsp.rpc.connect('127.0.0.1', 6005),
+      },
     }
 
     require('mason').setup()
@@ -216,8 +222,9 @@ return { -- LSP Configuration & Plugins
     local ensure_installed = vim.tbl_keys(servers or {})
     vim.list_extend(ensure_installed, {
       'stylua', -- Used to format Lua code
-      'tsserver',
+      'ts_ls',
       'gopls',
+      'gdtoolkit',
     })
     require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -227,7 +234,7 @@ return { -- LSP Configuration & Plugins
           local server = servers[server_name] or {}
           -- This handles overriding only values explicitly passed
           -- by the server configuration above. Useful when disabling
-          -- certain features of an LSP (for example, turning off formatting for tsserver)
+          -- certain features of an LSP (for example, turning off formatting for ts_ls)
           server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
           require('lspconfig')[server_name].setup(server)
         end,

@@ -16,6 +16,7 @@ return { -- Useful plugin to show you pending keybinds.
       { '<leader>s', group = '[S]earch' },
       { '<leader>t', group = '[T]oggle/[T]est' },
       { '<leader>w', group = '[W]orkspace' },
+      { 'gc', group = 'Commenting Lines' },
       -- "v" mode
       { '<leader>h', desc = 'Git [H]unk', mode = 'v' },
     }

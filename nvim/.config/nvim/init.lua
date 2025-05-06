@@ -76,10 +76,5 @@ vim.keymap.set('n', '<leader>ts', function()
   vim.cmd.term()
 end, { desc = '[T]erminal [S]tart' })
 
--- local projectfile = vim.fn.getcwd() .. '/project.godot'
--- if projectfile then
---   vim.fn.serverstart './godothost'
--- end
-
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
