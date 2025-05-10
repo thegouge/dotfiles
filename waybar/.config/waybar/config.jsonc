@@ -15,10 +15,10 @@
         "wireplumber",
         "network",
         "clock",
-        "custom/poweroff"
+        "custom/power"
     ],
     "clock": {
-        "format": "{:%a, %D    %I:%M}",
+        "format": "{:%a, %D     %I:%M}",
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "calendar": {
             "mode": "year",
@@ -41,8 +41,8 @@
         "tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
     },
     "wireplumber": {
-        "format": "{volume}% {icon}",
-        "format-muted": "",
+        "format": "{volume}% {icon} ",
+        "format-muted": " ",
         "on-click": "pavucontrol",
         "format-icons": [
             "",
@@ -70,7 +70,7 @@
         "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
         "format-critical": "{icon} {temperatureC}°C",
-        "format": "{icon} {temperatureC}°C ",
+        "format": "{icon} {temperatureC}°C",
         "format-icons": [
             ""
         ]
@@ -82,9 +82,19 @@
     "memory": {
         "format": "  {}%"
     },
-    "custom/poweroff": {
+    "custom/power": {
+        "format": "{icon}",
+        "format-icons": [
+            "⏻"
+        ],
         "tooltip": false,
-        "format": "<span size='13000' foreground='#f5e0dc'></span>",
-        "on-click": "echo herp"
+        "menu": "on-click",
+        "menu-file": "~/.config/waybar/power_menu.xml",
+        "menu-actions": {
+            "shutdown": "shutdown",
+            "reboot": "reboot",
+            "suspend": "systemctl suspend",
+            "hibernate": "systemctl hibernate"
+        }
     }
 }
