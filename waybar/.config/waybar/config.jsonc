@@ -11,7 +11,7 @@
         "cpu",
         "memory",
         "temperature",
-        "keyboard-state",
+        // "keyboard-state",
         "wireplumber",
         "network",
         "clock",
@@ -38,7 +38,8 @@
         "format-wifi": "<span size='13000' foreground='#f5e0dc'>  </span>{essid}",
         "format-ethernet": "<span size='13000' foreground='#f5e0dc'>󰈁 </span> Ethernet",
         "format-disconnected": "<span size='13000' foreground='#f5e0dc'>  </span>Disconnected",
-        "tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
+        "tooltip-format-wifi": "Signal Strenght: {signalStrength}%",
+        "on-click": "nmtui"
     },
     "wireplumber": {
         "format": "{volume}% {icon} ",
