@@ -1,4 +1,4 @@
 [default]
-path = "/media/storage/Pictures/Desktop Wallpapers/" 
+path = "/home/alexg/Pictures/Desktop Wallpapers/" 
 duration = "60m" 
 sorting = "random"
