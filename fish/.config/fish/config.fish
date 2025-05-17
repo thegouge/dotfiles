@@ -6,7 +6,8 @@ source ~/.bash_aliases
 ## Set values
 ## Run fastfetch as welcome message
 function fish_greeting
-    fastfetch
+    # fastfetch
+    echo "Welcome to the Terminal!"
 end
 
 # Format man pages
