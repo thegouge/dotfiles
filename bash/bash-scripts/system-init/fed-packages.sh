@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# List of base packages to install
+packages=(
+    "discord"
+    "docker"
+    "dolphin"
+    "fzf"
+    "ghostty"
+    "go"
+    "godot"
+    "gparted"
+    "hypridle"
+    "hyprland"
+    "hyprlock"
+    "hyprshot"
+    "input-remapper-bin"
+    "lazygit"
+    "lutris"
+    "neovim"
+    "nerd-fonts-git"
+    "obs-studio"
+    "parted"
+    "reaper"
+    "steam"
+    "stow"
+    "syncthing"
+    "timeshift"
+    "tmux"
+    "vivaldi"
+    "vlc"
+    "waybar"
+    "wofi"
+    "wpaperd"
+    "xclip"
+    "yazi"
+    "zen-browser-bin"
+    "zoom")
+
+sudo dnf install "${packages[@]}"
+
