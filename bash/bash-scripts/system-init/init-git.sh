@@ -6,8 +6,10 @@ cat ~/.ssh/id_ed25519.pub
 echo "pausing here for you to add your new SSH key to github"
 echo "go to https://github.com/settings/ssh/new"
 echo "then press 'ENTER' to continue"
+
+read input
 while true; do
-    if [[ $key = "" ]]; then
+    if [[ $input = "" ]]; then
         break
     fi
 done
