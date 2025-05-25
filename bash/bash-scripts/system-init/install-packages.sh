@@ -37,7 +37,7 @@ packages=(
     "zen-browser-bin"
     "zoom")
 
-if [ $1 = "arch" ]; then
+if [[ $1 = "arch" ]]; then
     sudo pacman -S --needed git base-devel
     git clone https://aur.archlinux.org/yay.git
     cd yay
@@ -45,10 +45,10 @@ if [ $1 = "arch" ]; then
 
     yay -S "${packages[@]}"
 
-elif [ $1 = "fedora" ]; then
+elif [[ $1 = "fedora" ]]; then
     sudo dnf install "${packages[@]}"
 
-elif [ $1 = "ubuntu" ]; then
+elif [[ $1 = "ubuntu" ]]; then
     # Adding all the repositories we need
     sudo add-apt-repository ppa:neovim-ppa/stable -y
     sudo add-apt-repository ppa:obsproject/obs-studio -y
