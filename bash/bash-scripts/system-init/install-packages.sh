@@ -10,15 +10,11 @@ packages=(
     "go"
     "godot"
     "gparted"
-    "hypridle"
-    "hyprland"
-    "hyprlock"
-    "hyprshot"
-    "input-remapper-bin"
+    "input-remapper"
     "lazygit"
     "lutris"
     "neovim"
-    "nerd-fonts-git"
+    "nerd-fonts"
     "obs-studio"
     "parted"
     "reaper"
@@ -29,24 +25,34 @@ packages=(
     "tmux"
     "vivaldi"
     "vlc"
-    "waybar"
     "wofi"
-    "wpaperd"
     "xclip"
     "yazi"
-    "zen-browser-bin"
+    "zen-browser"
     "zoom")
 
 if [[ $1 = "arch" ]]; then
+    archPackages = (
+        "hypridle"
+        "hyprland"
+        "hyprlock"
+        "hyprshot"
+        "waybar"
+        "wpaperd"
+       )
+
     sudo pacman -S --needed git base-devel
     git clone https://aur.archlinux.org/yay.git
     cd yay
     makepkg -si
 
-    yay -S "${packages[@]}"
+    yay -S "${packages[@]}" "${archPackages[@]}"
 
 elif [[ $1 = "fedora" ]]; then
-    sudo dnf install "${packages[@]}"
+    dnf copr enable lihaohong/yazi
+    sudo dnf copr enable atim/lazygit -y
+
+    sudo dnf install "${packages[@]}" --skip-unavailable
 
 elif [[ $1 = "ubuntu" ]]; then
     # Adding all the repositories we need
