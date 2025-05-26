@@ -1,5 +1,4 @@
 # Home Server IP
-# uncomment and set the IP when we set up the home server again
 BEEFY_IP=192.168.254.69
 
 # setting default editor
