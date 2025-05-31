@@ -14,13 +14,12 @@ $c\
 $rust\
 $golang\
 $nodejs\
-$php\
-$java\
-$kotlin\
-$haskell\
+$deno\
 $python\
+$lua\
+$zig\
 [](fg:teal bg:blue)\
-$docker_context\
+$sudo\
 [](fg:blue bg:purple)\
 $time\
 [ ](fg:purple)\
@@ -110,7 +109,7 @@ truncation_symbol = "…/"
 "Downloads" = " "
 "Music" = "󰝚 "
 "Pictures" = " "
-"Developer" = "󰲋 "
+"Coding" = "󰲋 "
 
 [git_branch]
 symbol = ""
@@ -141,28 +140,23 @@ symbol = ""
 style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
-[php]
-symbol = ""
-style = "bg:teal"
-format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
-
-[java]
-symbol = " "
-style = "bg:teal"
-format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
-
-[kotlin]
-symbol = ""
-style = "bg:teal"
-format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
-
-[haskell]
-symbol = ""
-style = "bg:teal"
-format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
-
 [python]
 symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+
+[deno]
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+
+[lua]
+symbol = ""
+style = "bg:teal"
+format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
+
+[zig]
+symbol = ""
 style = "bg:teal"
 format = '[[ $symbol( $version) ](fg:base bg:teal)]($style)'
 
@@ -171,9 +165,15 @@ symbol = ""
 style = "bg:mantle"
 format = '[[ $symbol( $context) ](fg:#83a598 bg:color_bg3)]($style)'
 
+[sudo]
+symbol = "󰫢"
+disabled = false
+format = "[[ $symbol ](fg:black bg:blue)]($style)"
+style = "bg:mantle"
+
 [time]
 disabled = false
-time_format = "%R"
+time_format = "%I:%M:%S"
 style = "bg:peach"
 format = '[[  $time ](fg:mantle bg:purple)]($style)'
 
