@@ -11,13 +11,13 @@ return {
   },
   cmd = 'Neotree',
   keys = {
-    { '\\', ':Neotree toggle<CR>', { desc = 'Toggle Neotree' } },
+    { '<leader>\\', ':Neotree toggle<CR>', { desc = 'Toggle Neotree' } },
   },
   opts = {
     filesystem = {
       window = {
         mappings = {
-          ['\\'] = 'close_window',
+          ['<leader>\\'] = 'close_window',
         },
       },
     },

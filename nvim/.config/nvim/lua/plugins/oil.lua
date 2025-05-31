@@ -6,5 +6,5 @@ return {
   -- Optional dependencies
   dependencies = { 'nvim-tree/nvim-web-devicons' },
 
-  vim.keymap.set('n', '<leader>\\', ':Oil<CR>', { desc = 'Open parent directory in Oil' }),
+  vim.keymap.set('n', '\\', ':Oil<CR>', { desc = 'Open parent directory in Oil' }),
 }
