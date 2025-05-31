@@ -5,6 +5,7 @@ packages=(
     "discord"
     "docker"
     "dolphin"
+    "fastfetch"
     "fzf"
     "ghostty"
     "go"
@@ -17,6 +18,7 @@ packages=(
     "nerd-fonts"
     "obs-studio"
     "parted"
+    "pavucontrol"
     "reaper"
     "steam"
     "stow"
@@ -28,18 +30,18 @@ packages=(
     "wofi"
     "xclip"
     "yazi"
-    "zen-browser"
+    "zen-browser-bin"
     "zoom")
 
 if [[ $1 = "arch" ]]; then
-    archPackages = (
+    archPackages=(
         "hypridle"
         "hyprland"
         "hyprlock"
         "hyprshot"
         "waybar"
-        "wpaperd"
-       )
+        "wlogout"
+        "wpaperd")
 
     sudo pacman -S --needed git base-devel
     git clone https://aur.archlinux.org/yay.git
@@ -47,6 +49,8 @@ if [[ $1 = "arch" ]]; then
     makepkg -si
 
     yay -S "${packages[@]}" "${archPackages[@]}"
+
+
 
 elif [[ $1 = "fedora" ]]; then
     dnf copr enable lihaohong/yazi
