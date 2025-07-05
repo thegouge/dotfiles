@@ -4,14 +4,13 @@
   // -------------------------------------------------------------------------
   "position": "top",
 
-  "modules-left": ["hyprland/workspaces", "custom/rofi", "custom/spotify"],
-  "modules-center": ["hyprland/window"],
+  "modules-left": ["hyprland/workspaces", "tray", "custom/spotify"],
+  "modules-center": ["custom/rofi", "hyprland/window"],
   "modules-right": [
-    "tray",
     "memory",
     "cpu",
     // "temperature",
-    "network",
+    // "network",
     "wireplumber",
     "clock",
     "custom/power",
@@ -101,7 +100,7 @@
   },
 
   "clock": {
-    "format": "  {:%I:%M   %e %b}",
+    "format": "  {:%I:%M   %a, %b %e}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "today-format": "<b>{}</b>",
   },
@@ -205,7 +204,7 @@
   },
 
   "wireplumber": {
-    "on-click": "pavucontrol",
+    "on-click": "pwvucontrol",
     "on-click-right": "amixer sset Master toggle 1>/dev/null",
     //on-click: "${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle";
     //on-scroll-down: "${wpctl} set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 0.04+";

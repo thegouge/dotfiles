@@ -110,6 +110,7 @@ window#waybar.hidden {
   background-color: #111827;
   border-radius: 5px;
   padding: 6px 12px;
+  margin-right: 5px;
 }
 
 #custom-screenshot_t {
