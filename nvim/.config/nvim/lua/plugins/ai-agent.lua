@@ -4,11 +4,11 @@ return {
     require('supermaven-nvim').setup {
       -- see https://github.com/supermaven-inc/supermaven-nvim for more info
       keymaps = {
-        accept_suggestion = '<C-y>',
+        accept_suggestion = '<Tab>',
         clear_suggestion = '<C-]>',
         accept_word = '<C-j>',
       },
-      ignore_filetypes = { 'cpp' },
+      ignore_filetypes = {},
       color = {
         suggestion_color = '#ffffff',
         cterm = 244,
@@ -22,3 +22,12 @@ return {
     }
   end,
 }
+-- return {
+--   "monkoose/neocodeium",
+--   event = "VeryLazy",
+--   config = function()
+--     local neocodeium = require("neocodeium")
+--     neocodeium.setup()
+--     vim.keymap.set("i", "<A-f>", neocodeium.accept)
+--   end,
+-- }
