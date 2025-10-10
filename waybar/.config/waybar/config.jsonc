@@ -3,16 +3,14 @@
   // Global configuration
   // -------------------------------------------------------------------------
   "position": "top",
-
-  "modules-left": ["hyprland/workspaces", "tray", "custom/spotify"],
-  "modules-center": ["custom/rofi", "hyprland/window"],
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["custom/rofi", "clock"],
   "modules-right": [
+    "tray", 
+    "wireplumber",
     "memory",
     "cpu",
-    // "temperature",
-    // "network",
-    "wireplumber",
-    "clock",
+    "temperature",
     "custom/power",
   ],
 
