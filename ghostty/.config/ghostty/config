@@ -3,3 +3,5 @@ font-family = "Hack Nerd Font"
 font-feature = -calt
 theme = "Dracula+"
 background-opacity = 0.85
+confirm-close-surface=false
+

@@ -1,4 +1,4 @@
 [default]
-path = "/home/thegouge/Pictures/Desktop Wallpapers/" 
+path = "~/Pictures/Desktop Wallpapers/" 
 duration = "60m" 
 sorting = "random"

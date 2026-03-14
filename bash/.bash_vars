@@ -5,5 +5,5 @@ BEEFY_IP=192.168.254.69
 export EDITOR="nvim"
 
 # Adding stuff to the path
-export PATH="$PATH:/home/thegouge/go/bin"
-export PATH="$PATH:/home/thegouge/bash-scripts"
+export PATH="$PATH:/home/$USER/go/bin"
+export PATH="$PATH:/home/$USER/bash-scripts"
