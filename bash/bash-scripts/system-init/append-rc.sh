@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Append to our .bashrc
-echo "
+echo '
 # Alias Definitions
 # this line shoves all the aliases into a .bash_aliases file
 if [ -f ~/.bash_aliases ]; then
@@ -14,4 +14,7 @@ if [ -f ~/.bash_vars ]; then
     . ~/.bash_vars
 fi
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash" >> ~/.bashrc
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# initializing starship
+eval "$(starship init bash)"' >> ~/.bashrc
