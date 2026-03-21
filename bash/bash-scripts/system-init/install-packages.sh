@@ -4,12 +4,10 @@
 packages=(
     "discord"
     "docker"
-    "fastfetch"
     "fzf"
     "ghostty"
     "go"
     "godot"
-    "gparted"
     "gvfs"
     "gvfs-smb"
     "input-remapper"
@@ -19,19 +17,15 @@ packages=(
     "nerd-fonts"
     "obs-studio"
     "parted"
-    "pavucontrol"
     "reaper"
     "sshfs"
     "steam"
     "stow"
     "syncthing"
-    "tumbler"
     "tmux"
     "vivaldi"
     "vlc"
-    "wofi"
     "xclip"
-    "yazi"
     "zen-browser-bin"
     "zoom")
 
@@ -43,6 +37,9 @@ if [[ $1 = "arch" ]]; then
         "hyprshot"
         "waybar"
         "wlogout"
+    	"pavucontrol"
+    	"wofi"
+    	"tumbler"
         "wpaperd")
 
     sudo pacman -S --needed git base-devel
@@ -50,7 +47,7 @@ if [[ $1 = "arch" ]]; then
     cd yay
     makepkg -si
 
-    yay -S "${packages[@]}" "${archPackages[@]}"
+    yay -S "${packages[@]}" 
 
 
 
