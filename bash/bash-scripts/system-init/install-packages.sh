@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "What base distro are you running?"
+read distro
+
 # List of base packages to install
 packages=(
     "discord"
@@ -8,8 +11,6 @@ packages=(
     "ghostty"
     "go"
     "godot"
-    "gvfs"
-    "gvfs-smb"
     "input-remapper"
     "lazygit"
     "lutris"
@@ -29,35 +30,55 @@ packages=(
     "zen-browser-bin"
     "zoom")
 
-if [[ $1 = "arch" ]]; then
-    archPackages=(
-        "hypridle"
-        "hyprland"
-        "hyprlock"
-        "hyprshot"
-        "waybar"
-        "wlogout"
-    	"pavucontrol"
-    	"wofi"
-    	"tumbler"
-        "wpaperd")
+if [[ $distro = "arch" ]]; then
+    archpackages=(
+        "gvfs"
+        "gvfs-smb"
+    )
+
+    echo "which Desktop environment are you using?"
+    echo "Hyprland=1, other=2"
+    read DE
 
     sudo pacman -S --needed git base-devel
     git clone https://aur.archlinux.org/yay.git
     cd yay
     makepkg -si
 
-    yay -S "${packages[@]}" 
+    yay -S "${packages[@]}" "${archpackages[@]}"
 
+    if [[ $DE = "1"]]; then
+        hyprPackages=(
+            "hypridle"
+            "hyprland"
+            "hyprlock"
+            "hyprshot"
+            "waybar"
+            "wlogout"
+    	    "pavucontrol"
+    	    "wofi"
+    	    "tumbler"
+            "wpaperd")
+        
+        yay -S "${hyprPackages[@]}"
+    else
+        
+    fi
 
-
-elif [[ $1 = "fedora" ]]; then
+elif [[ $distro = "fedora" ]]; then
+    debpackages=()
+    
     dnf copr enable lihaohong/yazi
     sudo dnf copr enable atim/lazygit -y
 
-    sudo dnf install "${packages[@]}" --skip-unavailable
+    sudo dnf install "${packages[@]}" "${debpackages[@]}" --skip-unavailable
 
-elif [[ $1 = "ubuntu" ]]; then
+elif [[ $distro = "debian" ]]; then
+    aptpackages=(
+        "nala"
+        "ffmpeg"
+    )
+        
     # Adding all the repositories we need
     sudo add-apt-repository ppa:neovim-ppa/stable -y
     sudo add-apt-repository ppa:obsproject/obs-studio -y
@@ -65,7 +86,7 @@ elif [[ $1 = "ubuntu" ]]; then
     sudo apt-get update
 
     # install everything
-    sudo apt-get install "${packages[@]}" nala ffmpeg -y
+    sudo apt-get install "${packages[@]}" "${aptpackages[@]}" -y
 
     # set up docker
     sudo apt-get install ca-certificates curl
@@ -82,6 +103,6 @@ elif [[ $1 = "ubuntu" ]]; then
     sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 else
-    echo "please enter a base distro as your first argument"
+    echo "I didn't recognize your base distro, please enter 'arch', 'debian', or 'fedora'"
 fi
 
