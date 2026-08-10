@@ -60,9 +60,9 @@ if [[ "$distro" == "arch" ]]; then
             "wpaperd")
         
         yay -S "${hyprPackages[@]}"
-    else
-        
     fi
+
+    source ./nvm.sh
 
 elif [[ "$distro" == "fedora" ]]; then
     debpackages=()
@@ -71,6 +71,8 @@ elif [[ "$distro" == "fedora" ]]; then
     sudo dnf copr enable atim/lazygit -y
 
     sudo dnf install "${packages[@]}" "${debpackages[@]}" --skip-unavailable
+
+    source ./nvm.sh
 
 elif [[ "$distro" == "debian" ]]; then
     aptpackages=(
@@ -100,6 +102,8 @@ elif [[ "$distro" == "debian" ]]; then
     sudo apt-get update
 
     sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+    source ./nvm.sh
 
 else
     echo "I didn't recognize your base distro, please enter 'arch', 'debian', or 'fedora'"
