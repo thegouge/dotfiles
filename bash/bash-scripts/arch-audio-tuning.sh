@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# This script is based off chmaha's Arch pro audio guide:
+# https://github.com/chmaha/ArchProAudio
+# your milage may vary...
+
 echo "first off, we'll install and run the rtcqs script. This will let us know what if anything to change"
 
 git clone https://codeberg.org/rtcqs/rtcqs.git
