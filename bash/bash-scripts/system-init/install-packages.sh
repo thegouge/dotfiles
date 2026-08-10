@@ -29,7 +29,7 @@ packages=(
     "zen-browser-bin"
     "zoom")
 
-if [[ $distro = "arch" ]]; then
+if [[ "$distro" == "arch" ]]; then
     archpackages=(
         "gvfs"
         "gvfs-smb"
@@ -46,7 +46,7 @@ if [[ $distro = "arch" ]]; then
 
     yay -S "${packages[@]}" "${archpackages[@]}"
 
-    if [[ $DE = "1"]]; then
+    if [[ "$DE" == "1"]]; then
         hyprPackages=(
             "hypridle"
             "hyprland"
@@ -64,7 +64,7 @@ if [[ $distro = "arch" ]]; then
         
     fi
 
-elif [[ $distro = "fedora" ]]; then
+elif [[ "$distro" == "fedora" ]]; then
     debpackages=()
     
     dnf copr enable lihaohong/yazi
@@ -72,7 +72,7 @@ elif [[ $distro = "fedora" ]]; then
 
     sudo dnf install "${packages[@]}" "${debpackages[@]}" --skip-unavailable
 
-elif [[ $distro = "debian" ]]; then
+elif [[ "$distro" == "debian" ]]; then
     aptpackages=(
         "nala"
         "ffmpeg"
