@@ -18,7 +18,6 @@ packages=(
     "nerd-fonts"
     "obs-studio"
     "parted"
-    "reaper"
     "sshfs"
     "steam"
     "stow"
