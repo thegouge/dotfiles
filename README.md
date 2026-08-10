@@ -17,6 +17,8 @@ Set Execution Parameters to `--server /tmp/godot.pipe --remote-send "+call curso
 
 Note: you can set the path to the pipe to anything you want. I set it in tmp for convenience.
 
+Then go to "Text Editor > Behavior" and tick "Auto Reload Scripts on External Change"
+
 ## 2. In Networking>Language Server
 
 Check the language server port, by default in Godot 4.2 it's 6005
@@ -60,6 +62,23 @@ dap.configurations.gdscript = {
 		project = "${workspaceFolder}",
 		launch_scene = true,
 	},
+}
+```
+
+Test this config from Godot's docs when you get the chance:
+```
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "GDScript Godot",
+            "type": "godot",
+            "request": "launch",
+            "project": "${workspaceFolder}",
+            "port": 6007,
+            "debugServer": 6006,
+        }
+    ]
 }
 ```
 
