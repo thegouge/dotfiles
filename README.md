@@ -14,6 +14,7 @@ Tick Use External Editor
 Set Execution Path to your neovim binary
 
 Set Execution Parameters to `--server /tmp/godot.pipe --remote-send "+call cursor({line}, {col})" {file}`
+	- Try just setting the exec flags to "+call cursor({line}, {col})" {file} and see if that works
 
 Note: you can set the path to the pipe to anything you want. I set it in tmp for convenience.
 
