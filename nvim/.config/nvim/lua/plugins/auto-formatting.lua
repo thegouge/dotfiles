@@ -5,13 +5,13 @@ return { -- Autoformat
   keys = {
     {
       '<leader>f',
-      function()
-        require('conform').format { async = true, lsp_format = 'fallback' }
-      end,
+      function() require('conform').format { async = true, lsp_format = 'fallback' } end,
       mode = '',
       desc = '[F]ormat buffer',
     },
   },
+  ---@module 'conform'
+  ---@type conform.setupOpts
   opts = {
     notify_on_error = false,
     format_on_save = function(bufnr)
@@ -30,6 +30,7 @@ return { -- Autoformat
     end,
     formatters_by_ft = {
       lua = { 'stylua' },
+      gdscript = { 'gdscript-formatter' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --

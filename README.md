@@ -13,9 +13,12 @@ Tick Use External Editor
 
 Set Execution Path to your neovim binary
 
-Set Execution Parameters to `--server /tmp/godot.pipe --remote-send "<esc>:n {file}<CR>:call cursor({line},{col})<CR>"`
+Set Execution Parameters to `--server /tmp/godot.pipe --remote-send "+call cursor({line}, {col})" {file}`
+	- Try just setting the exec flags to "+call cursor({line}, {col})" {file} and see if that works
 
 Note: you can set the path to the pipe to anything you want. I set it in tmp for convenience.
+
+Then go to "Text Editor > Behavior" and tick "Auto Reload Scripts on External Change"
 
 ## 2. In Networking>Language Server
 
@@ -60,6 +63,23 @@ dap.configurations.gdscript = {
 		project = "${workspaceFolder}",
 		launch_scene = true,
 	},
+}
+```
+
+Test this config from Godot's docs when you get the chance:
+```
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "GDScript Godot",
+            "type": "godot",
+            "request": "launch",
+            "project": "${workspaceFolder}",
+            "port": 6007,
+            "debugServer": 6006,
+        }
+    ]
 }
 ```
 

@@ -1,5 +1,5 @@
 return { -- Collection of various small independent plugins/modules
-  'echasnovski/mini.nvim',
+  'nvim-mini/mini.nvim',
   config = function()
     -- Better Around/Inside textobjects
     --
@@ -16,11 +16,70 @@ return { -- Collection of various small independent plugins/modules
     -- - sr)'  - [S]urround [R]eplace [)] [']
     require('mini.surround').setup()
 
-    -- Simple and easy statusline.
-    --  You could remove this setup call if you don't like it,
-    --  and try some other statusline plugin
+    require('mini.pairs').setup()
 
-    -- ... and there is more!
-    --  Check out: https://github.com/echasnovski/mini.nvim
+    require('mini.move').setup {
+      mappings = {
+        -- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl.
+        left = '<A-h>',
+        right = '<A-l>',
+        down = '<A-j>',
+        up = '<A-k>',
+
+        -- Move current line in Normal mode
+        line_left = '<A-h>',
+        line_right = '<A-l>',
+        line_down = '<A-j>',
+        line_up = '<A-k>',
+      },
+    }
+
+    -- require('mini.operators').setup {
+    --   -- Each entry configures one operator.
+    --   -- `prefix` defines keys mapped during `setup()`: in Normal mode
+    --   -- to operate on textobject and line, in Visual - on selection.
+    --
+    --   -- Evaluate text and replace with output
+    --   evaluate = {
+    --     prefix = 'g=',
+    --
+    --     -- Function which does the evaluation
+    --     func = nil,
+    --   },
+    --
+    --   -- Exchange text regions
+    --   exchange = {
+    --     -- NOTE: Default `gx` is remapped to `gX`
+    --     prefix = 'gx',
+    --
+    --     -- Whether to reindent new text to match previous indent
+    --     reindent_linewise = true,
+    --   },
+    --
+    --   -- Multiply (duplicate) text
+    --   multiply = {
+    --     prefix = 'gm',
+    --
+    --     -- Function which can modify text before multiplying
+    --     func = nil,
+    --   },
+    --
+    --   -- Replace text with register
+    --   replace = {
+    --     -- NOTE: Default `gr*` LSP mappings are removed
+    --     prefix = 'gr',
+    --
+    --     -- Whether to reindent new text to match previous indent
+    --     reindent_linewise = true,
+    --   },
+    --
+    --   -- Sort text
+    --   sort = {
+    --     prefix = 'gs',
+    --
+    --     -- Function which does the sort
+    --     func = nil,
+    --   },
+    -- }
   end,
 }
