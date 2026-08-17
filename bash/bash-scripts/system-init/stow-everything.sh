@@ -42,4 +42,18 @@ if [[ "$yazi" == "y" ]]; then
   stow yazi
 fi
 
+echo "Would you like to use Godot? [Y/n]"
+read godot
+
+if [[ "$godot" != "n" ]]; then
+  stow godot
+fi
+
+echo "Would you like to use Blender? [Y/n]"
+read blender
+
+if [[ "$blender" != "n" ]]; then
+  stow blender
+fi
+
 cd ~
