@@ -5,26 +5,38 @@ read distro
 
 # List of base packages to install
 packages=(
+    "appimagelauncher"
+    "aseprite"
+    "btop"
     "discord"
     "docker"
     "fzf"
     "ghostty"
+    "gimp"
+    "git-lfs"
     "go"
     "godot"
     "input-remapper"
+    "krita"
+    "lact"
     "lazygit"
     "lutris"
     "neovim"
     "nerd-fonts"
     "obs-studio"
+    "obsidian"
     "parted"
+    "pavucontrol"
+    "qbittorrent"
     "sshfs"
+    "starship"
     "steam"
     "stow"
     "syncthing"
     "tmux"
     "vivaldi"
     "vlc"
+    "wacomtablet"
     "xclip"
     "zen-browser-bin"
     "zoom")
@@ -33,6 +45,9 @@ if [[ "$distro" == "arch" ]]; then
     archpackages=(
         "gvfs"
         "gvfs-smb"
+        "proton-vpn-gtk-app"
+        "openvpn"
+        "wireguard-tools"
     )
 
     echo "which Desktop environment are you using?"
