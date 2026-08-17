@@ -29,11 +29,11 @@ fi
 echo "do we need to edit grubconfig? [Y/n]"
 read grubconfig
 
-if [["$grubconfig" != "n"]]; then
+if [[ "$grubconfig" != "n" ]]; then
   echo 'REMOVE THIS LINE AND THE NEXT!!!!! 
   Change GRUB_CMDLINE_LINUX="" to GRUB_CMDLINE_LINUX="threadirqs"' >> /etc/default/grub
 
-  sudo nvim -+ /etc/default/grub
+  sudo nvim + /etc/default/grub
 
   sudo grub-mkconfig -o /boot/grub/grub.cfg
 fi
@@ -41,7 +41,7 @@ fi
 echo "do you want to set your CPU to 'performance' mode? [Y/n]"
 read performance
 
-if [[ "$performance" != "n" then
+if [[ "$performance" != "n" ]]; then
   sudo cpupower frequency-set -g performance
 fi
 
