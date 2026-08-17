@@ -1,0 +1,12 @@
+{AMD/AMD Radeon RX 5700 XT (radeonsi, navi10, ACO, DRM 3.64, 6.19.10-1-cachyos)/4.6 (Core Profile) Mesa 26.0.3-arch2.2}=SUPPORTED
+{AMD/AMD Radeon RX 5700 XT (radeonsi, navi10, ACO, DRM 3.64, 6.19.11-1-cachyos)/4.6 (Core Profile) Mesa 26.0.4-arch2.2}=SUPPORTED
+{AMD/AMD Radeon RX 5700 XT (radeonsi, navi10, ACO, DRM 3.64, 6.19.12-1-cachyos)/4.6 (Core Profile) Mesa 26.0.5-arch2.2}=SUPPORTED
+{AMD/AMD Radeon RX 5700 XT (radeonsi, navi10, ACO, DRM 3.64, 7.0.0-1-cachyos)/4.6 (Core Profile) Mesa 26.0.5-arch2.4}=SUPPORTED
+{AMD/AMD Radeon RX 5700 XT (radeonsi, navi10, ACO, DRM 3.64, 7.0.10-1-cachyos)/4.6 (Core Profile) Mesa 26.1.1-arch2.1}=SUPPORTED
+{AMD/AMD Radeon RX 5700 XT (radeonsi, navi10, ACO, DRM 3.64, 7.0.10-2-cachyos)/4.6 (Core Profile) Mesa 26.1.1-arch2.1}=SUPPORTED
+{AMD/AMD Radeon RX 5700 XT (radeonsi, navi10, ACO, DRM 3.64, 7.0.11-1-cachyos)/4.6 (Core Profile) Mesa 26.1.2-arch2.1}=SUPPORTED
+{AMD/AMD Radeon RX 5700 XT (radeonsi, navi10, ACO, DRM 3.64, 7.0.12-1-cachyos)/4.6 (Core Profile) Mesa 26.1.2-arch3.1}=SUPPORTED
+{AMD/AMD Radeon RX 5700 XT (radeonsi, navi10, ACO, DRM 3.64, 7.1.1-2-cachyos)/4.6 (Core Profile) Mesa 26.1.2-arch3.1}=SUPPORTED
+{AMD/AMD Radeon RX 5700 XT (radeonsi, navi10, ACO, DRM 3.64, 7.1.2-3-cachyos)/4.6 (Core Profile) Mesa 26.1.4-arch3.1}=SUPPORTED
+{AMD/AMD Radeon RX 5700 XT (radeonsi, navi10, ACO, DRM 3.64, 7.1.3-2-cachyos)/4.6 (Core Profile) Mesa 26.1.4-arch3.1}=SUPPORTED
+{AMD/AMD Radeon RX 5700 XT (radeonsi, navi10, ACO, DRM 3.64, 7.1.5-1-cachyos)/4.6 (Core Profile) Mesa 26.1.6-arch3.1}=SUPPORTED

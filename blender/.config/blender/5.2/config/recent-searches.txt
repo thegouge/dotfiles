@@ -1,0 +1,31 @@
+DEF-spine.006
+Mesh ▸ Normals (Alt N) ▸ Split
+   Gold
+   Wood
+Object ▸ Join|Ctrl J
+Mesh ▸ Normals (Alt N) ▸ Merge
+Mesh ▸ Merge (M) ▸ At Center
+Mesh ▸ Transform ▸ Rotate|R
+ 0 Material
+Utilities ▸ Vector ▸ Vector Math ▸ Scale
+Utilities ▸ Vector ▸ Mapping
+Input ▸ Texture Coordinate
+   White-Plastic
+   Black-Plastic
+   Red-Plastic
+Add ▸ Camera
+View ▸ Align View ▸ Align Active Camera to View|Ctrl Alt Numpad 0
+   Render Result
+Mesh ▸ Snap ▸ Cursor to World Origin
+Object ▸ Set Origin ▸ Origin to Geometry
+Texture ▸ Image Texture
+   PurinUVMap
+Object ▸ Set Origin ▸ Origin to Center of Mass (Volume)
+   pompompurin UV Map.png
+Light ▸ Sun
+
+chest
+head
+waist
+Generate ▸ Mirror
+pelvis

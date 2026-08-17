@@ -1,0 +1,12 @@
+[Bookmarks]
+[Recent]
+/home/thegouge/Projects/dev/bay-blades/assets/models/
+/home/thegouge/Projects/Blender/Beyblades/
+/home/thegouge/Projects/Blender/Learning/textures/
+/home/thegouge/Projects/Blender/Learning/
+/home/thegouge/Projects/Blender/Learning/references/
+/home/thegouge/Documents/GIMPs/
+/home/thegouge/Projects/dev/bay-blades/assets/Imports/
+/home/thegouge/Projects/Blender/Beyblades/textures/
+/home/thegouge/Projects/dev/sloppy-mimic/assets/models/
+/home/thegouge/Projects/Blender/Mimic-Slop/
