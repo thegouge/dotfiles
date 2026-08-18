@@ -4,6 +4,8 @@ In order to clone this repo and setup a new machine for git/github, just run thi
 ```
 sh -c "$(curl -sS https://raw.githubusercontent.com/thegouge/dotfiles/refs/heads/main/bash/bash-scripts/system-init/init-git.sh)"
 ```
+> Note:
+> if you're running CachyOS, do this first: `chsh -s /usr/bin/bash`
 
 # Linking Neovim to Godot
 
