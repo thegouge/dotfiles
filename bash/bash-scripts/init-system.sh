@@ -28,21 +28,28 @@ fi
 echo "Would you like to download your list of preferred packages? [y/N]"
 read packageinstall
 
-if [[ "$packageinstall" == "y"]]; then
+if [[ "$packageinstall" == "y" ]]; then
   source ./system-init/install-packages.sh
+fi
+
+echo "Would you like to configure your terminal and shell? [y/N]"
+read term
+
+if [[ "$term" == "y" ]]; then
+  source ./system-init/terminal-init.sh
 fi
 
 echo "Would you like to append the usual to bashrc? [y/N]"
 read addrc
 
-if [[ "$addrc" == "y"]]; then
+if [[ "$addrc" == "y" ]]; then
   source ./system-init/append-rc.sh
 fi
 
 echo "Would you like to add your 4tb storage drive to fstab? [y/N]"
 read storagemount
 
-if [[ "$storagemount" == "y"]]; then
+if [[ "$storagemount" == "y" ]]; then
   source ./system-init/mount-storage.sh
 fi
 

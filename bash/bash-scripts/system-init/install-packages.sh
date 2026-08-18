@@ -11,7 +11,6 @@ packages=(
     "discord"
     "docker"
     "fzf"
-    "ghostty"
     "gimp"
     "git-lfs"
     "go"
@@ -26,7 +25,6 @@ packages=(
     "obs-studio"
     "obsidian"
     "parted"
-    "pavucontrol"
     "qbittorrent"
     "sshfs"
     "starship"
@@ -63,15 +61,22 @@ if [[ "$distro" == "arch" ]]; then
 
     if [[ "$DE" == "1"]]; then
         hyprPackages=(
+            "kitty"
+            "xdg-desktop-portal-gtk"
+            "xdg-desktop-portal-hyprland"
+            "hyprpolkitagent"
             "hypridle"
             "hyprland"
             "hyprlock"
             "hyprshot"
             "waybar"
             "wlogout"
-    	    "pavucontrol"
-    	    "wofi"
-    	    "tumbler"
+            "pavucontrol"
+    	      "wofi"
+    	      "tumbler"
+            "swaync"
+            "qt5-wayland"
+            "qt6-wayland"
             "wpaperd")
         
         yay -S "${hyprPackages[@]}"
